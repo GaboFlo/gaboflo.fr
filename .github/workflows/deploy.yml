@@ -4,6 +4,10 @@ on:
   release:
     types: [created]
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     name: Build
