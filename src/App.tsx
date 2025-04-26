@@ -37,16 +37,6 @@ function App() {
       document.documentElement.classList.remove("dark");
     }
 
-    // Track theme change in Matomo
-    if (window._paq) {
-      window._paq.push([
-        "trackEvent",
-        "Theme",
-        "Change",
-        isDarkMode ? "dark" : "light",
-      ]);
-    }
-
     // Save user preference
     localStorage.setItem("darkMode", isDarkMode.toString());
   }, [isDarkMode]);
