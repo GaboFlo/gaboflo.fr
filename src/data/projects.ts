@@ -7,7 +7,8 @@ export const projects: Project[] = [
     description:
       "Un outil permettant de comparer facilement les différentes offres d'énergie disponibles sur le marché, en fonction de vos consommations passées. Immédiat et sans inscriptions.",
     url: "https://comparateur-electricite.gaboflo.fr/",
-    githubUrl: "",
+    githubUrl:
+      "https://github.com/GaboFlo/Comparateur-et-simulateur-de-tarifs-d-electricite",
     status: "live",
     icon: "zap",
   },
