@@ -13,6 +13,16 @@ export const projects: Project[] = [
     icon: "zap",
   },
   {
+    id: "hover-translator",
+    title: "Extension de navigateur - Traducteur au survol",
+    description:
+      "Extension de navigateur pour la traduction au survol avec dictionnaire personnalisable (traduction des correspondances de codes ou identifiants techniques récurrents, ...).",
+    url: "https://github.com/GaboFlo/MyHoverCustomTranslator",
+    githubUrl: "https://github.com/GaboFlo/MyHoverCustomTranslator",
+    status: "live",
+    icon: "translate",
+  },
+  {
     id: "train-price",
     title: "Observatoire des prix des TGV",
     description:

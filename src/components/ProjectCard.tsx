@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Train, Zap } from "lucide-react";
+import { BookOpen, ExternalLink, Github, Train, Zap } from "lucide-react";
 import React from "react";
 import { Project } from "../types";
 
@@ -13,6 +13,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         return <Zap size={24} className="text-yellow-500" />;
       case "train":
         return <Train size={24} className="text-blue-500" />;
+      case "translate":
+        return <BookOpen size={24} className="text-green-500" />;
       default:
         return null;
     }
