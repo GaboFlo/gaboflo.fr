@@ -26,7 +26,7 @@ export const projects: Project[] = [
     customLinks: [
       {
         icon: "chrome",
-        url: "https://chromewebstore.google.com/detail/traducteur-personnalis%C3%A9-a/nmknpgpdoclllikijfkhocimieblajmh",
+        url: "https://chromewebstore.google.com/detail/nmknpgpdoclllikijfkhocimieblajmh",
         label: "Installer sur Chrome Web Store",
         enabled: true,
         svgPath: "/src/assets/icons/chrome.svg",
