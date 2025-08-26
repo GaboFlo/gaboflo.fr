@@ -11,6 +11,7 @@ export const projects: Project[] = [
       "https://github.com/GaboFlo/Comparateur-et-simulateur-de-tarifs-d-electricite",
     status: "live",
     icon: "zap",
+    urlTestEnabled: true,
   },
   {
     id: "hover-translator",
@@ -20,7 +21,24 @@ export const projects: Project[] = [
     url: "https://github.com/GaboFlo/MyHoverCustomTranslator",
     githubUrl: "https://github.com/GaboFlo/MyHoverCustomTranslator",
     status: "live",
+    urlTestEnabled: false,
     icon: "translate",
+    customLinks: [
+      {
+        icon: "chrome",
+        url: "https://chromewebstore.google.com/detail/nmknpgpdoclllikijfkhocimieblajmh",
+        label: "Installer sur Chrome Web Store",
+        enabled: true,
+        svgPath: "/src/assets/icons/chrome.svg",
+      },
+      {
+        icon: "firefox",
+        url: "https://addons.mozilla.org/fr/firefox/addon/wip",
+        label: "Installer sur Firefox Add-ons",
+        enabled: false,
+        svgPath: "/src/assets/icons/firefox.svg",
+      },
+    ],
   },
   {
     id: "train-price",
@@ -31,5 +49,6 @@ export const projects: Project[] = [
     githubUrl: "",
     status: "upcoming",
     icon: "train",
+    urlTestEnabled: false,
   },
 ];

@@ -1,12 +1,29 @@
-import { BookOpen, ExternalLink, Github, Train, Zap } from "lucide-react";
-import React from "react";
+import {
+  BookOpen,
+  ExternalLink,
+  Github,
+  Share2,
+  Train,
+  Zap,
+} from "lucide-react";
+import React, { useState } from "react";
 import { Project } from "../types";
+import { copyToClipboard, generateProjectShareLink } from "../utils/share";
+import CustomIcon from "./CustomIcon";
+
+declare global {
+  interface Window {
+    _paq?: unknown[];
+  }
+}
 
 interface ProjectCardProps {
   project: Project;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const [showShareTooltip, setShowShareTooltip] = useState(false);
+
   const getIcon = () => {
     switch (project.icon) {
       case "zap":
@@ -20,7 +37,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     }
   };
 
-  const trackClick = (type: "visit" | "github") => {
+  const trackClick = (type: "visit" | "github" | "custom" | "share") => {
     if (window._paq) {
       window._paq.push([
         "trackEvent",
@@ -28,6 +45,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         "Click",
         `${project.title} - ${type}`,
       ]);
+    }
+  };
+
+  const handleShare = async () => {
+    const shareLink = generateProjectShareLink(project.id);
+    const success = await copyToClipboard(shareLink);
+
+    if (success) {
+      setShowShareTooltip(true);
+      setTimeout(() => setShowShareTooltip(false), 2000);
+      trackClick("share");
     }
   };
 
@@ -78,6 +106,52 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             <Github size={20} />
           </a>
 
+          {project.customLinks && project.status === "live" && (
+            <>
+              {project.customLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.enabled !== false ? link.url : undefined}
+                  onClick={() => link.enabled !== false && trackClick("custom")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`transition-colors ${
+                    link.enabled !== false
+                      ? "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white cursor-pointer"
+                      : "text-gray-400 dark:text-gray-600 cursor-not-allowed"
+                  }`}
+                  aria-label={
+                    link.enabled !== false
+                      ? link.label
+                      : `${link.label} - Non disponible`
+                  }
+                  {...(link.enabled === false && { "aria-disabled": "true" })}
+                >
+                  {link.svgPath && (
+                    <CustomIcon
+                      svgPath={link.svgPath}
+                      size="sm"
+                      iconName={link.icon}
+                    />
+                  )}
+                </a>
+              ))}
+            </>
+          )}
+
+          <button
+            onClick={handleShare}
+            className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white cursor-pointer transition-colors relative"
+            aria-label="Partager ce projet"
+          >
+            <Share2 size={20} />
+            {showShareTooltip && (
+              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded whitespace-nowrap z-10">
+                Lien copié !
+              </div>
+            )}
+          </button>
+
           <a
             href={project.status === "live" ? project.url : undefined}
             onClick={() => trackClick("visit")}
@@ -90,10 +164,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             }`}
             {...(project.status !== "live" && { "aria-disabled": "true" })}
           >
-            {project.status === "live" ? (
+            {project.status === "live" && project.urlTestEnabled ? (
               <>
                 Tester <ExternalLink size={16} />
               </>
+            ) : project.status === "live" ? (
+              ""
             ) : (
               "Bientôt disponible"
             )}
