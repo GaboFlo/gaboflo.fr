@@ -33,9 +33,9 @@ export const projects: Project[] = [
       },
       {
         icon: "firefox",
-        url: "https://addons.mozilla.org/fr/firefox/addon/wip",
+        url: "https://addons.mozilla.org/addon/traducteur-personnel-au-survol/",
         label: "Installer sur Firefox Add-ons",
-        enabled: false,
+        enabled: true,
         svgPath: "/assets/icons/firefox.svg",
       },
     ],
