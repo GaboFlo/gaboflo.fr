@@ -2,6 +2,17 @@ import { Project } from "../types";
 
 export const projects: Project[] = [
   {
+    id: "train-price",
+    title: "Observatoire des prix des TGV",
+    description:
+      "Un projet à venir qui permettra de suivre et d'analyser les fluctuations des prix des billets de train",
+    url: "https://observatoire-billets-train.gaboflo.fr/",
+    githubUrl: "https://github.com/GaboFlo/observatoire-billets-train/",
+    status: "live",
+    icon: "train",
+    urlTestEnabled: true,
+  },
+  {
     id: "energy-comparison",
     title: "Simulateur et comparateur d'électricité",
     description:
@@ -39,16 +50,5 @@ export const projects: Project[] = [
         svgPath: "/assets/icons/firefox.svg",
       },
     ],
-  },
-  {
-    id: "train-price",
-    title: "Observatoire des prix des TGV",
-    description:
-      "Un projet à venir qui permettra de suivre et d'analyser les fluctuations des prix des billets de train",
-    url: "",
-    githubUrl: "",
-    status: "upcoming",
-    icon: "train",
-    urlTestEnabled: false,
   },
 ];
