@@ -1,12 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply font-sans text-base antialiased;
   }
@@ -16,15 +14,15 @@
   .container {
     @apply max-w-7xl mx-auto;
   }
-  
+
   .animate-fade-in {
     animation: fade-in 0.8s ease-out;
   }
-  
+
   .animate-fade-in-delay {
     animation: fade-in 0.8s ease-out 0.2s both;
   }
-  
+
   .animate-fade-in-delay-2 {
     animation: fade-in 0.8s ease-out 0.4s both;
   }
