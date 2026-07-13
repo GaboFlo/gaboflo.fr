@@ -32,8 +32,8 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a 
-          href="#" 
+        <a
+          href="/"
           className="text-xl font-bold text-gray-900 dark:text-white transition-colors"
         >
           Portfolio
@@ -42,10 +42,10 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           <nav className="flex gap-6">
-            <a href="#projects" className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors">
+            <a href="/#projects" className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors">
               Projets
             </a>
-            <a href="#about" className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors">
+            <a href="/#about" className="text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors">
               À propos
             </a>
           </nav>
@@ -80,15 +80,15 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, toggleDarkMode }) => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg">
           <nav className="container mx-auto px-4 py-4 flex flex-col">
-            <a 
-              href="#projects" 
+            <a
+              href="/#projects"
               className="py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Projets
             </a>
-            <a 
-              href="#about" 
+            <a
+              href="/#about"
               className="py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
             >
